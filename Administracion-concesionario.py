@@ -8,7 +8,7 @@ class veiculo(): #creacion de la clase para el producto, en este caso un veiculo
         self.marca = marca #creacion del atributo marca a traves de la variable externa marca
         self.modelo = modelo #creacion del atributo modelo a traves de la variable externa modelo
 
-    def.descripcion(self):
+    def descripcion(self):
         return f"Especificaciones: {self.marca} {self.modelo}, Carroceria: {self.tipo_carroceria}, Color: {self.color}, Potencia: {self.potencia}, Traccion: {self.eje_traccion}"
 
 inventario = [] #crea la variable inventario asignandole una lista vacia
