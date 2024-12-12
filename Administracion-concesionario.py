@@ -35,7 +35,7 @@ def modificar_producto():
     modelo = str(input("Introduce el modelo del coche a modificar")) #pide al usuario la modelo del coche que quiere buscar y la asigna a la varible modelo para buscarla mas adelante
 
     for i in inventario: # crea un bucle que recorre todos los objetos guardados en inventario, asignandole a i los valores de estos objetos
-        if i.marca == marca and i.modelo == modelo #compruba si la marca y el modelo del objeto guardado en i coincide con el que se busca, si es asi pasa a asignar los nuevos atributos
+        if i.marca == marca and i.modelo == modelo: #compruba si la marca y el modelo del objeto guardado en i coincide con el que se busca, si es asi pasa a asignar los nuevos atributos
             i.marca = str(input("Introduce la nueva marca del coche")) #asigna a la variable marca un valor str dado por el usuario en un input
             i.modelo = str(input("Introduce el nuevo modelo del coche")) #asigna a la variable modelo un valor str dado por el usuario en un input
             i.color = str(input("Introduce el nuevo color del Coche")) #asigna a la variable color un valor str dado por el usuario en un input
@@ -52,12 +52,18 @@ def eliminar_producto():
     modelo = str(input("Introduce el modelo del coche a modificar")) #pide al usuario la modelo del coche que quiere buscar y la asigna a la varible modelo para buscarla mas adelante
 
     for i in inventario: # crea un bucle que recorre todos los objetos guardados en inventario, asignandole a i los valores de estos objetos
-        if i.marca == marca and i.modelo == modelo #compruba si la marca y el modelo del objeto guardado en i coincide con el que se busca, si es asi pasa a eliminarlo del inventario
+        if i.marca == marca and i.modelo == modelo: #compruba si la marca y el modelo del objeto guardado en i coincide con el que se busca, si es asi pasa a eliminarlo del inventario
             inventario.remove(i) #remueve del inventario el objeto guardado en la variable i, que es el que se desia eliminar
             print ("El coche se a eliminado correctamente") #le dice al usuario que se a eliminado correctamente
             return #detiene a la funcion con un return
     print("No se a encontrado el coche") #si el bucle finaliza, significa que no esta el cohe buscado en el inventario, por lo que se le comunica al usuario por un print
 
+def mostrar_inventario(): #crea la funcion mostrar inventario
+    if inventario == []: #comprueba si la lista inventario esta vacia
+        print("el inventario esta vacio") #si es asi, dice que esta vacia
+    else :
+        for i in inventario: # si la lista no esta vacia, crea un bucle que recorre todos los objetos en inventario y le da al usuario la descripcion de cada uno
+            print(i.descripcion())
 
 def main(): #crea la funcion mai, que es la que estara ligada al menu
     while True: #Inicia un bucle infinitro asignando un valor buleano
