@@ -13,6 +13,21 @@ class veiculo(): #creacion de la clase para el producto, en este caso un veiculo
 
 inventario = [] #crea la variable inventario asignandole una lista vacia
 
+def agregar_producto(): #crea la funcion agragar producto
+    marca = str(input("introduce la marca del coche")) #asigna a la variable marca un valor str dado por el usuario en un input
+    modelo = str(input("introduce el modelo del coche")) #asigna a la variable modelo un valor str dado por el usuario en un input
+    color = str(input("Introduce el color del Coche")) #asigna a la variable color un valor str dado por el usuario en un input
+    potencia = int(input("Introduce la potencia del coche en HP")) #asigna a la variable potencia un valor int dado por el usuario en un input
+    eje_tracción = str(input("Introduce el eje de tracción del Coche")) #asigna a la variable eje_tracción un valor str dado por el usuario en un input
+    tipo_carroceria = str(input("Introduce el tipo de carroceria del Coche")) #asigna a la variable eje_tracción un valor str dado por el usuario en un input
+    precio = float(input("Introduce el precio del coche")) #asigna a la variable precio un valor float dado por el usuario en un input
+
+    for i in inventario: #antes de pasar a la parte del codigo de la funcion que agregara el cohe a el inventario, como el maestro dijo que no hubiese objetos repetidos, se crea un bucle en el que se compruba si la marca y el modelo del coche que emos registrado coincide cocon algunos de los objetos guardados en inventario, si es asi, se le dice al usuario que ya hay un producto asi registrado y se detiene a la funcion con return
+        if i.modelo == modelo and i.marca == marca:
+            print("Ya hay un coche asi registrado")
+            return
+    inventario.append(veiculo(color, potencia, tipo_carroceria, precio, marca, modelo)) #se añaden los datos del coche a el inventario, que es una lista, con append. 
+    print("Se a agregado el coche al inventario") #se le dice a el usuario que el coche se a agregado al inventario.
 
 
 def main(): #crea la funcion mai, que es la que estara ligada al menu
