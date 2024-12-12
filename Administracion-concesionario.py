@@ -14,8 +14,8 @@ class veiculo(): #creacion de la clase para el producto, en este caso un veiculo
 inventario = [] #crea la variable inventario asignandole una lista vacia
 
 def agregar_producto(): #crea la funcion agragar producto
-    marca = str(input("introduce la marca del coche")) #asigna a la variable marca un valor str dado por el usuario en un input
-    modelo = str(input("introduce el modelo del coche")) #asigna a la variable modelo un valor str dado por el usuario en un input
+    marca = str(input("Introduce la marca del coche")) #asigna a la variable marca un valor str dado por el usuario en un input
+    modelo = str(input("Introduce el modelo del coche")) #asigna a la variable modelo un valor str dado por el usuario en un input
     color = str(input("Introduce el color del Coche")) #asigna a la variable color un valor str dado por el usuario en un input
     potencia = int(input("Introduce la potencia del coche en HP")) #asigna a la variable potencia un valor int dado por el usuario en un input
     eje_tracción = str(input("Introduce el eje de tracción del Coche")) #asigna a la variable eje_tracción un valor str dado por el usuario en un input
@@ -28,6 +28,24 @@ def agregar_producto(): #crea la funcion agragar producto
             return
     inventario.append(veiculo(color, potencia, tipo_carroceria, precio, marca, modelo)) #se añaden los datos del coche a el inventario, que es una lista, con append. 
     print("Se a agregado el coche al inventario") #se le dice a el usuario que el coche se a agregado al inventario.
+
+
+def modificar_producto():
+    marca = str(input("Introduce la marca del coche a modificar")) #pide al usuario la marca del coche que quiere buscar y la asigna a la varible marca para buscarla mas adelante
+    modelo = str(input("Introduce el modelo del coche a modificar")) #pide al usuario la modelo del coche que quiere buscar y la asigna a la varible modelo para buscarla mas adelante
+
+    for i in inventario: # crea un bucle que recorre todos los objetos guardados en inventario, asignandole a i los valores de estos objetos
+        if i.marca == marca and i.modelo == modelo #compruba si la marca y el modelo del objeto guardado en i coincide con el que se busca, si es asi pasa a asignar los nuevos atributos
+            i.marca = str(input("Introduce la nueva marca del coche")) #asigna a la variable marca un valor str dado por el usuario en un input
+            i.modelo = str(input("Introduce el nuevo modelo del coche")) #asigna a la variable modelo un valor str dado por el usuario en un input
+            i.color = str(input("Introduce el nuevo color del Coche")) #asigna a la variable color un valor str dado por el usuario en un input
+            i.potencia = int(input("Introduce la nuevo potencia del coche en HP")) #asigna a la variable potencia un valor int dado por el usuario en un input
+            i.eje_tracción = str(input("Introduce el nuevo eje de tracción del Coche")) #asigna a la variable eje_tracción un valor str dado por el usuario en un input
+            i.tipo_carroceria = str(input("Introduce el nuevo tipo de carroceria del Coche")) #asigna a la variable eje_tracción un valor str dado por el usuario en un input
+            i.precio = float(input("Introduce el precio nuevo del coche")) #asigna a la variable precio un valor float dado por el usuario en un input
+            print ("El coche se a modificado correctamente") #le dice al usuario que se a modificado correctamente
+            return #detiene a la funcion con un return
+    print("No se a encontrado el coche") #si el bucle finaliza, significa que no esta el cohe buscado en el inventario, por lo que se le comunica al usuario por un print
 
 
 def main(): #crea la funcion mai, que es la que estara ligada al menu
